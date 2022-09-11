@@ -29,17 +29,9 @@ class AdapterKata (val listKata : ArrayList<ListKata>): RecyclerView.Adapter<Ada
         holder.btnItem.text = listKata[position].kata
         holder.btnItem.setOnClickListener (object  : View.OnClickListener{
             override fun onClick(v: View?) {
-                if (holder.btnItem.length() == 1){
-                    var bun = Bundle()
-                    bun.putString("kata",holder.btnItem.text.toString())
-                    Navigation.findNavController(holder.itemView).navigate(R.id.action_fragmentAbjad_to_fragmentKata,bun)
-                }else{
                     val link = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?q= ${holder.btnItem.text.toString()}"))
                     context.startActivity(link)
                 }
-
-            }
-
         })
 
 
